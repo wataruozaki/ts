@@ -17,18 +17,13 @@ var Person = /** @class */ (function () {
         this.name = name;
         this.age = age;
     }
-    Person.isAoult = function (age) {
-        if (age > 17)
-            return true;
-        return false;
-    };
     Person.prototype.incrementAge = function () {
         this.age += 1;
     };
     Person.prototype.greeting = function () {
         console.log("Hello My name is " + this.name + ", " + this.age + " years old.");
+        this.explainJob();
     };
-    Person.spacies = "homosapies";
     return Person;
 }());
 var Teacher = /** @class */ (function (_super) {
@@ -38,6 +33,9 @@ var Teacher = /** @class */ (function (_super) {
         _this._subject = _subject;
         return _this;
     }
+    Teacher.prototype.explainJob = function () {
+        console.log("I teach " + this.subject + " . ");
+    };
     Object.defineProperty(Teacher.prototype, "subject", {
         get: function () {
             if (!this._subject) {
@@ -54,13 +52,8 @@ var Teacher = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
-    Teacher.prototype.greeting = function () {
-        console.log("Hello My name is " + this.name + ", " + this.age + " years old.");
-    };
     return Teacher;
 }(Person));
-console.log(Person.spacies);
-console.log(Person.isAoult(38));
-console.log(Teacher.spacies);
-console.log(Teacher.isAoult(38));
-// コンソール
+var teacher = new Teacher("Quill", 38, "Math");
+// const teacher2 = new Person("Quill", 38); //abstructがあるのでエラーになる
+teacher.greeting();

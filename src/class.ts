@@ -1,9 +1,4 @@
-class Person {
-  static spacies = "homosapies";
-  static isAoult(age: number) {
-    if (age > 17) return true;
-    return false;
-  }
+abstract class Person {
   constructor(public name: string, protected age: number) {}
   incrementAge() {
     this.age += 1;
@@ -11,10 +6,15 @@ class Person {
 
   greeting(this: Person) {
     console.log(`Hello My name is ${this.name}, ${this.age} years old.`);
+    this.explainJob();
   }
+  abstract explainJob(): void;
 }
 
 class Teacher extends Person {
+  explainJob() {
+    console.log(`I teach ${this.subject} . `);
+  }
   get subject() {
     if (!this._subject) {
       throw new Error("there is no subject.");
@@ -31,19 +31,8 @@ class Teacher extends Person {
   constructor(name: string, age: number, private _subject: string) {
     super(name, age);
   }
-
-  greeting(this: Teacher) {
-    console.log(`Hello My name is ${this.name}, ${this.age} years old.`);
-  }
 }
 
-console.log(Person.spacies);
-console.log(Person.isAoult(38));
-console.log(Teacher.spacies);
-console.log(Teacher.isAoult(38));
-// コンソール
-
-// homosapies;
-// true;
-// homosapies;
-// true;
+const teacher = new Teacher("Quill", 38, "Math");
+// const teacher2 = new Person("Quill", 38); //abstructがあるのでエラーになる
+teacher.greeting();
