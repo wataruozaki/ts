@@ -3,7 +3,16 @@ var Parson = /** @class */ (function () {
     function Parson(initName) {
         this.name = initName;
     }
+    Parson.prototype.greeting = function () {
+        console.log("Hello My name is " + this.name);
+    };
     return Parson;
 }());
-var man = new Parson("taro");
-console.log(man);
+var quill = new Parson("Quill");
+quill.greeting();
+var anotherQuill = {
+    name: "anotherQuill",
+    anotherGreeting: quill.greeting,
+};
+anotherQuill.anotherGreeting();
+//メソッド追加
