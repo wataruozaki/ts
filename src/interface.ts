@@ -1,5 +1,3 @@
-// クラスとインターフェイスを同時に使う
-// インターフェイスの内容をクラスに対して指定したい時
 interface Human {
   name: string;
   age: number;
@@ -13,6 +11,19 @@ class Developer implements Human {
     public experience: number
   ) {}
   greeting(message: string) {
-    console.log("Hello!");
+    console.log(message);
   }
 }
+const tmpDeveloper = {
+  name: "Quill",
+  age: 38,
+  experience: 3,
+  greeting(message: string) {
+    console.log(message);
+  },
+};
+const user: Human = tmpDeveloper;
+
+// 構造的部分型とは
+// インターフェイスで宣言した物が含まれていれば、コンストラクターの内容が増えてもオッケー
+// 一度変数を挟まないとエラーになる
