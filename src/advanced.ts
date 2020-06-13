@@ -67,5 +67,12 @@ function havePet(pet: Pet) {
 }
 havePet(new Bird());
 
-// タグ付きユニオン
-// switchでタグをつけるように分岐できる。
+// const input = <HTMLInputElement>document.getElementById("input");
+// const input = document.getElementById("input") as HTMLInputElement;// React の場合はこっち
+// input.value = "initial input value";
+
+(document.getElementById("input") as HTMLInputElement).value =
+  "initial input value";
+// 丸括弧で囲えば一行で書ける。
+
+// 手動で型を上書きする
