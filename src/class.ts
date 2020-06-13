@@ -1,5 +1,10 @@
 class Parson {
-  constructor(public name: string, private age: number) {}
+  readonly id: number = 32;
+  constructor(public readonly name: string, private age: number) {
+    this.id = 31;
+    this.name = "hello";
+    this.id = 30;
+  }
   incrementAge() {
     this.age += 1;
   }
@@ -12,6 +17,7 @@ class Parson {
 let person2: Parson;
 const quill = new Parson("Quill", 35);
 quill.incrementAge();
+console.log(quill.id);
 quill.greeting();
 
 // コンソール
