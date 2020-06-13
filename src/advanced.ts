@@ -73,6 +73,17 @@ havePet(new Bird());
 
 (document.getElementById("input") as HTMLInputElement).value =
   "initial input value";
-// 丸括弧で囲えば一行で書ける。
 
-// 手動で型を上書きする
+// 型アサーション　　!  をつける
+
+interface Designer {
+  name: string;
+  [index: string]: string; //indexシグネイチャーを使う場合は全て同じ型
+}
+
+const designer: Designer = {
+  name: "Quill",
+  role: "web",
+};
+
+console.log(designer.hogehogehoge); //値はないがタイプスクリプト上ではOKになってしまう

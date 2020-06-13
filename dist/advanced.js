@@ -57,5 +57,8 @@ havePet(new Bird());
 // input.value = "initial input value";
 document.getElementById("input").value =
     "initial input value";
-// 丸括弧で囲えば一行で書ける。
-// 手動で型を上書きする
+var designer = {
+    name: "Quill",
+    role: "web",
+};
+console.log(designer.hogehogehoge); //値はないがタイプスクリプト上ではOKになってしまう
