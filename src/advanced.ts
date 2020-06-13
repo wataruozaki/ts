@@ -21,12 +21,16 @@ type NumberBoolean = number | boolean;
 type stringNumber = string | number;
 type mix = NumberBoolean & stringNumber;
 
-function toUpperCase(x: string | number) {
+// function toUpperCase(x: string): string;
+function toUpperCase(x: number): number;
+function toUpperCase(x: string | number): string | number {
   if (typeof x === "string") {
     x.toUpperCase();
   }
-  return " ";
+  return x;
 }
+const upperHello = toUpperCase("hello");
+
 type NomadWorker = Engineer | Blogger;
 function discribeProfile(nomadWorker: NomadWorker) {
   console.log(nomadWorker.name);
