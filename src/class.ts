@@ -1,15 +1,20 @@
-class Parson {
+class Person {
+  static spacies = "homosapies";
+  static isAoult(age: number) {
+    if (age > 17) return true;
+    return false;
+  }
   constructor(public name: string, protected age: number) {}
   incrementAge() {
     this.age += 1;
   }
 
-  greeting(this: Parson) {
+  greeting(this: Person) {
     console.log(`Hello My name is ${this.name}, ${this.age} years old.`);
   }
 }
 
-class Teacher extends Parson {
+class Teacher extends Person {
   get subject() {
     if (!this._subject) {
       throw new Error("there is no subject.");
@@ -31,9 +36,14 @@ class Teacher extends Parson {
     console.log(`Hello My name is ${this.name}, ${this.age} years old.`);
   }
 }
-const teacher = new Teacher("Qiill", 38, "math");
-teacher.subject = "Music";
-console.log(teacher.subject);
-teacher.greeting();
 
+console.log(Person.spacies);
+console.log(Person.isAoult(38));
+console.log(Teacher.spacies);
+console.log(Teacher.isAoult(38));
 // コンソール
+
+// homosapies;
+// true;
+// homosapies;
+// true;

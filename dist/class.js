@@ -12,18 +12,24 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var Parson = /** @class */ (function () {
-    function Parson(name, age) {
+var Person = /** @class */ (function () {
+    function Person(name, age) {
         this.name = name;
         this.age = age;
     }
-    Parson.prototype.incrementAge = function () {
+    Person.isAoult = function (age) {
+        if (age > 17)
+            return true;
+        return false;
+    };
+    Person.prototype.incrementAge = function () {
         this.age += 1;
     };
-    Parson.prototype.greeting = function () {
+    Person.prototype.greeting = function () {
         console.log("Hello My name is " + this.name + ", " + this.age + " years old.");
     };
-    return Parson;
+    Person.spacies = "homosapies";
+    return Person;
 }());
 var Teacher = /** @class */ (function (_super) {
     __extends(Teacher, _super);
@@ -40,7 +46,7 @@ var Teacher = /** @class */ (function (_super) {
             return this._subject;
         },
         set: function (value) {
-            if (!this._subject) {
+            if (!value) {
                 throw new Error("there is no subject.");
             }
             this._subject = value;
@@ -52,9 +58,9 @@ var Teacher = /** @class */ (function (_super) {
         console.log("Hello My name is " + this.name + ", " + this.age + " years old.");
     };
     return Teacher;
-}(Parson));
-var teacher = new Teacher("Qiill", 38, "math");
-teacher.subject = "Music";
-console.log(teacher.subject);
-teacher.greeting();
+}(Person));
+console.log(Person.spacies);
+console.log(Person.isAoult(38));
+console.log(Teacher.spacies);
+console.log(Teacher.isAoult(38));
 // コンソール
