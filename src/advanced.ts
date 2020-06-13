@@ -21,7 +21,7 @@ type NumberBoolean = number | boolean;
 type stringNumber = string | number;
 type mix = NumberBoolean & stringNumber;
 
-// function toUpperCase(x: string): string;
+function toUpperCase(x: string): string;
 function toUpperCase(x: number): number;
 function toUpperCase(x: string | number): string | number {
   if (typeof x === "string") {
