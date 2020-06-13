@@ -1,8 +1,8 @@
 "use strict";
 var Parson = /** @class */ (function () {
-    function Parson(initName, initAge) {
-        this.name = initName;
-        this.age = initAge;
+    function Parson(name, age) {
+        this.name = name;
+        this.age = age;
     }
     Parson.prototype.incrementAge = function () {
         this.age += 1;

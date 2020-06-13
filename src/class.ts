@@ -1,11 +1,5 @@
 class Parson {
-  name: string;
-  private age: number;
-
-  constructor(initName: string, initAge: number) {
-    this.name = initName;
-    this.age = initAge;
-  }
+  constructor(public name: string, private age: number) {}
   incrementAge() {
     this.age += 1;
   }
@@ -19,3 +13,6 @@ let person2: Parson;
 const quill = new Parson("Quill", 35);
 quill.incrementAge();
 quill.greeting();
+
+// コンソール
+// Hello My name is Quill, 36 years old.
