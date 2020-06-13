@@ -1,10 +1,5 @@
 class Parson {
-  readonly id: number = 32;
-  constructor(public readonly name: string, private age: number) {
-    this.id = 31;
-    this.name = "hello";
-    this.id = 30;
-  }
+  constructor(public name: string, private age: number) {}
   incrementAge() {
     this.age += 1;
   }
@@ -14,11 +9,20 @@ class Parson {
   }
 }
 
-let person2: Parson;
-const quill = new Parson("Quill", 35);
-quill.incrementAge();
-console.log(quill.id);
-quill.greeting();
+class Teacher extends Parson {
+  constructor(name: string, age: number, public sublect: string) {
+    super(name, age);
+  }
+
+  greeting(this: Teacher) {
+    console.log(`Hello My name is ${this.name}, ${this.age} years old.`);
+    // .ageにエラー
+    // Parson.age: number
+    //   プロパティ 'age' はプライベートで、クラス 'Parson' 内でのみアクセスできます
+  }
+}
+const teacher = new Teacher("Qiill", 38, "math");
+
+teacher.greeting();
 
 // コンソール
-// Hello My name is Quill, 36 years old.
