@@ -1,5 +1,5 @@
 interface Human {
-  name: string;
+  readonly name: string;
   age: number;
   greeting(message: string): void;
 }
@@ -23,7 +23,7 @@ const tmpDeveloper = {
   },
 };
 const user: Human = tmpDeveloper;
-
-// 構造的部分型とは
-// インターフェイスで宣言した物が含まれていれば、コンストラクターの内容が増えてもオッケー
-// 一度変数を挟まないとエラーになる
+let developer = new Developer("Quill", 34, 3);
+developer.name = "hello";
+// クラスを経由してるため、エラーにならない
+// implementsの中のreadonlyはクラスの中には影響しない
