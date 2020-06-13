@@ -21,6 +21,7 @@ function discribeProfile(nomadWorker) {
 }
 var Dog = /** @class */ (function () {
     function Dog() {
+        this.kind = "dog";
     }
     Dog.prototype.speak = function () {
         console.log("bow-wow");
@@ -29,6 +30,7 @@ var Dog = /** @class */ (function () {
 }());
 var Bird = /** @class */ (function () {
     function Bird() {
+        this.kind = "bird";
     }
     Bird.prototype.speak = function () {
         console.log("tweet-tweet");
@@ -40,8 +42,15 @@ var Bird = /** @class */ (function () {
 }());
 function havePet(pet) {
     pet.speak();
+    switch (pet.kind) {
+        case "bird":
+            pet.fly();
+            break;
+    }
     if (pet instanceof Bird) {
         pet.fly();
     }
 }
-havePet(new Dog());
+havePet(new Bird());
+// タグ付きユニオン
+// switchでタグをつけるように分岐できる。
