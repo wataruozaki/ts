@@ -1,4 +1,5 @@
 "use strict";
+var _a, _b, _c;
 var quill = {
     name: "Quill",
     role: "front-end",
@@ -62,4 +63,11 @@ var designer = {
     name: "Quill",
     role: "web",
 };
-console.log(designer.hogehogehoge); //値はないがタイプスクリプト上ではOKになってしまう
+var downloadedData = {
+    id: 1,
+};
+// Optional Chaining
+console.log((_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first);
+// もしエラーがあったらとりあえず?を使ってundefinedで止めておく
+// Nullish Coalescing
+var userdata = (_c = downloadedData.user) !== null && _c !== void 0 ? _c : "no-user";

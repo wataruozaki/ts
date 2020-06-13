@@ -78,11 +78,9 @@ havePet(new Bird());
 (document.getElementById("input") as HTMLInputElement).value =
   "initial input value";
 
-// 型アサーション　　!  をつける
-
 interface Designer {
   name: string;
-  [index: string]: string; //indexシグネイチャーを使う場合は全て同じ型
+  [index: string]: string;
 }
 
 const designer: Designer = {
@@ -90,4 +88,28 @@ const designer: Designer = {
   role: "web",
 };
 
-console.log(designer.hogehogehoge); //値はないがタイプスクリプト上ではOKになってしまう
+// Optional Chaining　＆　Nullish Coalescing
+interface DownloadedData {
+  id: number;
+  user?: {
+    name?: {
+      first: string;
+      last: string;
+    };
+  };
+}
+
+const downloadedData: DownloadedData = {
+  id: 1,
+};
+// Optional Chaining
+console.log(downloadedData.user?.name?.first);
+// もしエラーがあったらとりあえず?を使ってundefinedで止めておく
+
+// Nullish Coalescing
+const userdata = downloadedData.user ?? "no-user";
+// undefinedとnullの値のみno-userの値になるよってこと
+
+// lookup型
+type id = DownloadedData["id"]["name"];
+// オブジェクトのナンバー型を取得
