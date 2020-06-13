@@ -4,17 +4,17 @@ class Parson {
     this.name = initName;
   }
 
-  greeting(this: { name: string }) {
+  greeting(this: Parson) {
     console.log(`Hello My name is ${this.name}`);
   }
 }
 
+let person2: Parson;
 const quill = new Parson("Quill");
 quill.greeting();
 const anotherQuill = {
   name: "anotherQuill",
-  anotherGreeting: quill.greeting,
+  greeting: quill.greeting,
 };
-anotherQuill.anotherGreeting();
 
-//メソッド追加
+anotherQuill.greeting();

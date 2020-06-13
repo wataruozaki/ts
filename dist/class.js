@@ -8,11 +8,11 @@ var Parson = /** @class */ (function () {
     };
     return Parson;
 }());
+var person2;
 var quill = new Parson("Quill");
 quill.greeting();
 var anotherQuill = {
     name: "anotherQuill",
-    anotherGreeting: quill.greeting,
+    greeting: quill.greeting,
 };
-anotherQuill.anotherGreeting();
-//メソッド追加
+anotherQuill.greeting();
