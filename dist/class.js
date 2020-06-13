@@ -52,8 +52,14 @@ var Teacher = /** @class */ (function (_super) {
         enumerable: false,
         configurable: true
     });
+    Teacher.getInstance = function () {
+        if (Teacher.instance)
+            return Teacher.instance;
+        Teacher.instance = new Teacher("Quill", 38, "Math");
+        return Teacher.instance;
+    };
     return Teacher;
 }(Person));
-var teacher = new Teacher("Quill", 38, "Math");
-// const teacher2 = new Person("Quill", 38); //abstructがあるのでエラーになる
-teacher.greeting();
+var teacher = Teacher.getInstance();
+var teacher2 = Teacher.getInstance();
+console.log(teacher, teacher2);
