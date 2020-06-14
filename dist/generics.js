@@ -1,6 +1,6 @@
 "use strict";
-function copy(value) {
+function copy(value, key) {
+    value[key];
     return value;
 }
-console.log(copy({ name: "Quill" }));
-// ジェネリクスにおけるextendは狭めるイメージ;
+console.log(copy({ name: "Quill", age: 38 }, "name"));
