@@ -27,11 +27,32 @@ stringLightDatabase.add("grape");
 stringLightDatabase.remove("banana");
 
 console.log(stringLightDatabase.get());
-interface TmpDataBase<T> {
-  id: number;
-  data: T[];
+
+// Utillity型　-  typescriptに内蔵されてるライブラリ的な
+interface Todo {
+  title: string;
+  text: string;
 }
-const TmpDataBase: TmpDataBase = {
-  id: 3,
-  data: [],
-};
+type Todoable = Partial<Todo>;
+// {
+//   title ?: string | undefined;
+//   text ?: string | undefined;
+// } オプショナルプロパティで返す
+type ReadTodo = Readonly<Todo>;
+// {
+//     readonly title: string;
+//     readonly text: string;
+// } readonlyを返す
+
+const fetchData: Promise<string> = new Promise((resolve) => {
+  setTimeout(() => {
+    resolve("hello");
+  }, 3000);
+});
+fetchData.then((data) => {
+  data.toUpperCase();
+});
+// Promiseはunknownを返すがジェネリクスを使い、型の指定をできる
+
+const vagetables: Array<string> = ["tomato", "Broccoli", "asparagus"];
+// これで配列で文字列を指定できる
