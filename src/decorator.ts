@@ -43,14 +43,31 @@ function MethodLogging(
   console.log(propertyKey);
   console.log(descripter);
 }
+function AccesserLogging(
+  target: any,
+  propertyKey: string,
+  descripter: PropertyDescriptor
+) {
+  console.log("AccesserLogging");
+  console.log(target);
+  console.log(propertyKey);
+  console.log(descripter);
+}
 
 @Logging("Logging User")
 @Component("<h1> {{ name }} </h1>", "#app")
 class User {
   @PropertyLogging
   name = "Quill";
-  constructor(public age: number) {
+  constructor(private _age: number) {
     console.log("User was created!");
+  }
+  @AccesserLogging
+  get age() {
+    return this._age;
+  }
+  set age(value) {
+    this._age = value;
   }
   @MethodLogging
   greeting() {
