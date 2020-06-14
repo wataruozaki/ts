@@ -36,6 +36,18 @@ const upperHello = function (x: string | number) {
   return 0;
 };
 
+interface FuncA {
+  (a: number, b: string): number;
+  (a: string, b: number): number;
+}
+interface FuncB {
+  (a: string): number;
+}
+let intersectionFunc: FuncA & FuncB;
+intersectionFunc = function (a: number | string, b?: number | string) {
+  return 0;
+};
+
 type NomadWorker = Engineer | Blogger;
 function discribeProfile(nomadWorker: NomadWorker) {
   console.log(nomadWorker.name);
