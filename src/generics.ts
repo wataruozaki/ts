@@ -56,3 +56,9 @@ fetchData.then((data) => {
 
 const vagetables: Array<string> = ["tomato", "Broccoli", "asparagus"];
 // これで配列で文字列を指定できる
+
+interface ResponseData<T extends { message: string } = any> {
+  data: T;
+  status: number;
+}
+let tmp2: ResponseData;

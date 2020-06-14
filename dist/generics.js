@@ -39,4 +39,4 @@ fetchData.then((data) => {
 });
 // Promiseはunknownを返すがジェネリクスを使い、型の指定をできる
 const vagetables = ["tomato", "Broccoli", "asparagus"];
-// これで配列で文字列を指定できる
+let tmp2;
