@@ -14,9 +14,10 @@ function toUpperCase(x) {
 var upperHello = function (x) {
     return 0;
 };
-var intersectionFunc;
-intersectionFunc = function (a, b) {
-    return 0;
+var unionFunc;
+// unionFunc()  　これだと型は(a: never) => string | numberになる
+unionFunc = function (a) {
+    return 34;
 };
 function discribeProfile(nomadWorker) {
     console.log(nomadWorker.name);

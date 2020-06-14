@@ -27,7 +27,6 @@ function toUpperCase(x: string | number): string | number {
   }
   return x;
 }
-// オーバーロードした物はinterfaceで定義する必要がある
 interface TmpFunc {
   (x: string): number;
   (x: number): number;
@@ -36,16 +35,17 @@ const upperHello = function (x: string | number) {
   return 0;
 };
 
+// 関数型のユニオン型はパラメータがインターセクション型、戻り値はユニオン型になる
 interface FuncA {
-  (a: number, b: string): number;
-  (a: string, b: number): number;
+  (a: number): number;
 }
 interface FuncB {
-  (a: string): number;
+  (a: string): string;
 }
-let intersectionFunc: FuncA & FuncB;
-intersectionFunc = function (a: number | string, b?: number | string) {
-  return 0;
+let unionFunc: FuncA | FuncB;
+// unionFunc()  　これだと型は(a: never) => string | numberになる
+unionFunc = function (a: number) {
+  return 34;
 };
 
 type NomadWorker = Engineer | Blogger;
