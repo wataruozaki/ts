@@ -27,5 +27,11 @@ stringLightDatabase.add("grape");
 stringLightDatabase.remove("banana");
 
 console.log(stringLightDatabase.get());
-// コンソール
-// ['apple', 'grape']
+interface TmpDataBase<T> {
+  id: number;
+  data: T[];
+}
+const TmpDataBase: TmpDataBase = {
+  id: 3,
+  data: [],
+};
