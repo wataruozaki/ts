@@ -104,3 +104,8 @@ var peter = {
     name: "Peter",
     age: 38,
 };
+//実行結果
+// type PeaterType = {
+//   readonly name: "Peter";
+//   readonly age: 38;
+// }

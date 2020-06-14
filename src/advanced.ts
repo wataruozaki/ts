@@ -141,3 +141,12 @@ const peter = {
   name: "Peter",
   age: 38,
 } as const;
+
+// typepf を型の中で使う
+
+type PeaterType = typeof peter;
+//実行結果
+// type PeaterType = {
+//   readonly name: "Peter";
+//   readonly age: 38;
+// }
