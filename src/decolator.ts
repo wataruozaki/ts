@@ -1,9 +1,13 @@
-function Logging(constructor: Function) {
-  console.log("Logging....");
-  console.log(constructor);
+// デコレーターファクトリー
+// 勝手に定義できないのでデコレーターを返す関数をかく
+function Logging(message: string) {
+  return function (constructor: Function) {
+    console.log(message);
+    console.log(constructor);
+  };
 }
 
-@Logging
+@Logging("Logging User")
 class User {
   name = "Quill";
   constructor() {
@@ -11,3 +15,7 @@ class User {
   }
 }
 const user1 = new User();
+// コンソール
+// Logging User
+// [Function: User]
+// User was created!
