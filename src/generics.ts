@@ -84,3 +84,5 @@ type ConditionlTypeInfer = { tomato: string } extends { tomato: infer R }
 
 type DistributiveConditionalTypes<T> = T extends "tomato" ? number : boolean;
 let tmp4: DistributiveConditionalTypes<"tomato" | "pumpkin">;
+// let tmp4: number | boolean
+let tmp5: DistributiveConditionalTypes<"tomato" | "pumpkin">;

@@ -42,3 +42,5 @@ const vagetables = ["tomato", "Broccoli", "asparagus"];
 let tmp2;
 let tmp3;
 let tmp4;
+// let tmp4: number | boolean
+let tmp5;
