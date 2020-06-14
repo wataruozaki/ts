@@ -72,3 +72,28 @@ var downloadedData = {
 };
 console.log((_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first);
 var userdata = (_c = downloadedData.user) !== null && _c !== void 0 ? _c : "no-user";
+var AdvancedPerson = /** @class */ (function () {
+    function AdvancedPerson() {
+        this.name = "tom";
+        this.age = 30;
+    }
+    return AdvancedPerson;
+}());
+var AdvancedCar = /** @class */ (function () {
+    function AdvancedCar() {
+        this.name = "prius";
+        this.age = 5;
+    }
+    return AdvancedCar;
+}());
+var target = new AdvancedPerson();
+var source = new AdvancedCar();
+target = source;
+// レストパラメータ　（...argとか）
+function advancedFn() {
+    var args = [];
+    for (var _i = 0; _i < arguments.length; _i++) {
+        args[_i] = arguments[_i];
+    }
+}
+advancedFn(0, "hi", true, 3, 3, 3, 3, 3);

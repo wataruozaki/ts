@@ -117,3 +117,20 @@ const downloadedData: DownloadedData = {
 console.log(downloadedData.user?.name?.first);
 const userdata = downloadedData.user ?? "no-user";
 type id = DownloadedData["id"];
+
+class AdvancedPerson {
+  name: string = "tom";
+  age: number = 30;
+}
+
+class AdvancedCar {
+  name: string = "prius";
+  age: number = 5;
+}
+let target = new AdvancedPerson();
+let source = new AdvancedCar();
+target = source;
+
+// レストパラメータ　（...argとか）
+function advancedFn(...args: [number, string, boolean, ...number[]]) {}
+advancedFn(0, "hi", true, 3, 3, 3, 3, 3);
