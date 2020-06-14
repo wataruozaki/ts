@@ -130,7 +130,5 @@ class AdvancedCar {
 let target = new AdvancedPerson();
 let source = new AdvancedCar();
 target = source;
-
-// レストパラメータ　（...argとか）
 function advancedFn(...args: readonly number[]) {}
 advancedFn(0, 1, 2, 3);

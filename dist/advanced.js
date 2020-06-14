@@ -89,7 +89,6 @@ var AdvancedCar = /** @class */ (function () {
 var target = new AdvancedPerson();
 var source = new AdvancedCar();
 target = source;
-// レストパラメータ　（...argとか）
 function advancedFn() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
