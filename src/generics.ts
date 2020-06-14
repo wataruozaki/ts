@@ -57,8 +57,19 @@ fetchData.then((data) => {
 const vagetables: Array<string> = ["tomato", "Broccoli", "asparagus"];
 // これで配列で文字列を指定できる
 
+// 型をパラメーターとして指定できる
 interface ResponseData<T extends { message: string } = any> {
   data: T;
   status: number;
 }
 let tmp2: ResponseData;
+
+// MappedType
+interface Vegetables {
+  readonly tomato: string;
+  pumpkin: string;
+}
+let tmp3: keyof Vegetables;
+type MappedTypes = {
+  -readonly [P in keyof Vegetables]?: string;
+};

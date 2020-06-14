@@ -40,3 +40,4 @@ fetchData.then((data) => {
 // Promiseはunknownを返すがジェネリクスを使い、型の指定をできる
 const vagetables = ["tomato", "Broccoli", "asparagus"];
 let tmp2;
+let tmp3;
