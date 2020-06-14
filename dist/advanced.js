@@ -96,3 +96,11 @@ function advancedFn() {
     }
 }
 advancedFn(0, 1, 2, 3);
+// constアサーション
+var milk = "milk";
+var drink = milk;
+var array = [10, 20];
+var peter = {
+    name: "Peter",
+    age: 38,
+};
