@@ -1,15 +1,13 @@
-// type Engineer = {}
 interface Engineer {
   name: string;
   role: string;
 }
-// type Blogger = {}
+
 interface Blogger {
   name: string;
   follower: number;
 }
 
-// type EnginerBlogger = Engineer & Blogger;
 interface EnginerBlogger extends Engineer, Blogger {}
 const quill: EnginerBlogger = {
   name: "Quill",
@@ -29,7 +27,14 @@ function toUpperCase(x: string | number): string | number {
   }
   return x;
 }
-const upperHello = toUpperCase("hello");
+// オーバーロードした物はinterfaceで定義する必要がある
+interface TmpFunc {
+  (x: string): number;
+  (x: number): number;
+}
+const upperHello = function (x: string | number) {
+  return 0;
+};
 
 type NomadWorker = Engineer | Blogger;
 function discribeProfile(nomadWorker: NomadWorker) {
@@ -70,11 +75,6 @@ function havePet(pet: Pet) {
   }
 }
 havePet(new Bird());
-
-// const input = <HTMLInputElement>document.getElementById("input");
-// const input = document.getElementById("input") as HTMLInputElement;// React の場合はこっち
-// input.value = "initial input value";
-
 (document.getElementById("input") as HTMLInputElement).value =
   "initial input value";
 
@@ -88,7 +88,6 @@ const designer: Designer = {
   role: "web",
 };
 
-// Optional Chaining　＆　Nullish Coalescing
 interface DownloadedData {
   id: number;
   user?: {
@@ -102,14 +101,7 @@ interface DownloadedData {
 const downloadedData: DownloadedData = {
   id: 1,
 };
-// Optional Chaining
+
 console.log(downloadedData.user?.name?.first);
-// もしエラーがあったらとりあえず?を使ってundefinedで止めておく
-
-// Nullish Coalescing
 const userdata = downloadedData.user ?? "no-user";
-// undefinedとnullの値のみno-userの値になるよってこと
-
-// lookup型
-type id = DownloadedData["id"]["name"];
-// オブジェクトのナンバー型を取得
+type id = DownloadedData["id"];

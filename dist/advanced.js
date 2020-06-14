@@ -11,7 +11,9 @@ function toUpperCase(x) {
     }
     return x;
 }
-var upperHello = toUpperCase("hello");
+var upperHello = function (x) {
+    return 0;
+};
 function discribeProfile(nomadWorker) {
     console.log(nomadWorker.name);
     if ("role" in nomadWorker) {
@@ -54,9 +56,6 @@ function havePet(pet) {
     }
 }
 havePet(new Bird());
-// const input = <HTMLInputElement>document.getElementById("input");
-// const input = document.getElementById("input") as HTMLInputElement;// React の場合はこっち
-// input.value = "initial input value";
 document.getElementById("input").value =
     "initial input value";
 var designer = {
@@ -66,8 +65,5 @@ var designer = {
 var downloadedData = {
     id: 1,
 };
-// Optional Chaining
 console.log((_b = (_a = downloadedData.user) === null || _a === void 0 ? void 0 : _a.name) === null || _b === void 0 ? void 0 : _b.first);
-// もしエラーがあったらとりあえず?を使ってundefinedで止めておく
-// Nullish Coalescing
 var userdata = (_c = downloadedData.user) !== null && _c !== void 0 ? _c : "no-user";
