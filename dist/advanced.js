@@ -96,4 +96,4 @@ function advancedFn() {
         args[_i] = arguments[_i];
     }
 }
-advancedFn(0, "hi", true, 3, 3, 3, 3, 3);
+advancedFn(0, 1, 2, 3);

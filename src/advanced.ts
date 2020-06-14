@@ -132,5 +132,5 @@ let source = new AdvancedCar();
 target = source;
 
 // レストパラメータ　（...argとか）
-function advancedFn(...args: [number, string, boolean, ...number[]]) {}
-advancedFn(0, "hi", true, 3, 3, 3, 3, 3);
+function advancedFn(...args: readonly number[]) {}
+advancedFn(0, 1, 2, 3);
