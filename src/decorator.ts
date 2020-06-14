@@ -43,6 +43,18 @@ function MethodLogging(
   console.log(propertyKey);
   console.log(descripter);
 }
+function enumerable(isEnumerable: boolean) {
+  return function (
+    _target: any,
+    _propertyKey: string,
+    _descripter: PropertyDescriptor
+  ) {
+    return {
+      enumerable: isEnumerable,
+    };
+  };
+}
+
 function AccesserLogging(
   target: any,
   propertyKey: string,
@@ -69,6 +81,7 @@ class User {
   set age(value) {
     this._age = value;
   }
+  @enumerable(false)
   @MethodLogging
   greeting() {
     console.log("Hello");
